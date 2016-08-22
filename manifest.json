@@ -1,0 +1,37 @@
+﻿{
+  "name": "SmartJD京东比比看",
+  "author": "Sunshine.Wu",
+  "description": "SmartJD致力于为用户在浏览京东商品页面时提供PC端、APP端、微信端、手机QQ端全方位价格一览显示，并呈现对京东商城的商品库存全国实时查询",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "browser_action": {
+    "default_icon": "images/icon16.png",
+    "default_title": "SmartJD京东比比看"
+  },
+  "icons": {
+    "128": "images/icon128.png",
+    "16": "images/icon16.png",
+    "48": "images/icon48.png"
+  },
+  "web_accessible_resources": [
+    "*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "js/jquery-3.1.0.min.js",
+        "js/smartjd_index.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "https://*/*",
+    "notifications",
+    "http://*/*"
+  ],
+  "update_url": "https://clients2.google.com/service/update2/crx"
+}

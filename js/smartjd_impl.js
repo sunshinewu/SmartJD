@@ -24,10 +24,10 @@
     }
 
     function ajaxPrice(dataType) {
-        var URL_PC = "http://p.3.cn/prices/get?type=1&skuid=J_" + skuid,  //PC端
-            URL_APP = "http://pm.3.cn/prices/mgets?origin=2&skuIds=" + skuid, //APP端
-            URL_WX = "http://pe.3.cn/prices/mgets?origin=5&skuids=" + skuid, //微信端
-            URL_QQ = "http://pe.3.cn/prices/mgets?origin=4&skuids=" + skuid; //QQ端
+        var URL_PC = "https://p.3.cn/prices/get?type=1&skuid=J_" + skuid,  //PC端
+            URL_APP = "https://pm.3.cn/prices/mgets?origin=2&skuIds=" + skuid, //APP端
+            URL_WX = "https://pe.3.cn/prices/mgets?origin=5&skuids=" + skuid, //微信端
+            URL_QQ = "https://pe.3.cn/prices/mgets?origin=4&skuids=" + skuid; //QQ端
 
         var
             getPCPriceAjaxDfd = $.Deferred(),
@@ -145,7 +145,7 @@
                 panel = smart_jd_areaObject[e].city_name;
                 $("#smartjd_stock_list_panel").append("<li class='smartjd_stock_list-item smartjd_stock_list-item-mini' id='c_" + smart_jd_areaObject[e].state_id + "_" + smart_jd_areaObject[e].city_id + "_" + smart_jd_areaObject[e].country_id + "'><span class='column1'>" + panel + "</span><span class='column2'>" + pricePc + "</span><span class='column3'>" + priceMo + "</span><span class='column4'>" + priceWx + "</span><span class='column5'>" + priceQQ + "</span></li>");
                 $.ajax({
-                    url: "http://c0.3.cn/stock?skuId=" + skuid + "&venderId=" + venderId + "&cat=" + catalog + "&area=" + smart_jd_areaObject[e].state_id + "_" + smart_jd_areaObject[e].city_id + "_" + smart_jd_areaObject[e].country_id + "_0&buyNum=1&extraParam={%22originid%22:%221%22}&ch=1",
+                    url: "https://c0.3.cn/stock?skuId=" + skuid + "&venderId=" + venderId + "&cat=" + catalog + "&area=" + smart_jd_areaObject[e].state_id + "_" + smart_jd_areaObject[e].city_id + "_" + smart_jd_areaObject[e].country_id + "_0&buyNum=1&extraParam={%22originid%22:%221%22}&ch=1",
                     dataType: JSONP,
                     context: $("#c_" + smart_jd_areaObject[e].state_id + "_" + smart_jd_areaObject[e].city_id + "_" + smart_jd_areaObject[e].country_id),
                     success: function (data) {
@@ -168,6 +168,7 @@
 
 
     function doWork() {
+
         insertHTML(); //插入相关DOM HTML
 
         displayAllPrice(); //显示所有客户端价格信息
